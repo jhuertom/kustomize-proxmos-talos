@@ -34,3 +34,8 @@ kustomize build envoy --enable-helm | kubectl apply -f -
 ```bash
 curl -v -H "Host: www.example.com" 192.168.3.10
 ```
+
+# ArgoCD
+```bash
+kustomize build argocd --enable-helm | kubectl apply --server-side -f -
+```

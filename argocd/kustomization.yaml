@@ -1,0 +1,23 @@
+# kustomize build argocd --enable-helm | kubectl apply --server-side -f -
+resources:
+- namespace.yaml
+- httproute.yaml
+
+helmCharts:
+- name: argo-cd
+  namespace: argocd
+  repo: https://argoproj.github.io/argo-helm
+  version: 9.5.0
+  releaseName: argocd
+  valuesInline:
+    global:
+      domain: argocd.homelab.prod
+    configs:
+      secret:
+        argocdServerAdminPassword: "$2a$10$CAMBIA_ESTO_POR_TU_HASH_BCRYPT"
+        argocdServerAdminPasswordMtime: "2026-04-12T00:00:00Z"
+    server:
+      ingress:
+        enabled: false
+      extraArgs:
+        - --insecure
