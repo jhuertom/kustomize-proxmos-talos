@@ -1,0 +1,11 @@
+# kustomize build envoy-crds | kubectl apply --server-side -f -
+resources:
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/gatewayapi-crds.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_backends.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_backendtrafficpolicies.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_clienttrafficpolicies.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyextensionpolicies.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_envoypatchpolicies.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_envoyproxies.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_httproutefilters.yaml
+- ./charts/gateway-helm-1.7.1/gateway-helm/crds/generated/gateway.envoyproxy.io_securitypolicies.yaml

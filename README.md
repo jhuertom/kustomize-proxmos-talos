@@ -20,7 +20,17 @@ kubectl delete deployment nginx
 kubectl delete svc nginx
 ```
 
+# Envoy CRDs
+```bash
+kustomize build envoy-crds | kubectl apply --server-side -f -
+```
+
 # Envoy
 ```bash
 kustomize build envoy --enable-helm | kubectl apply -f -
+```
+
+## Podemos probar el Envoy
+```bash
+curl -v -H "Host: www.example.com" 192.168.3.10
 ```
