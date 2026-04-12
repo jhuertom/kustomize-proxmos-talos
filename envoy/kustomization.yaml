@@ -1,0 +1,11 @@
+# kustomize build . | kubectl apply -f -
+resources:
+- https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/standard-install.yaml
+- namespace.yaml
+- quickstart.yaml
+
+helmCharts:
+- name: gateway-helm
+  namespace: envoy-gateway-system
+  repo: oci://docker.io/envoyproxy
+  version: 1.7.1
