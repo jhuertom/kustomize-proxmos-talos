@@ -2,6 +2,7 @@
 resources:
 - namespace.yaml
 - httproute.yaml
+- certificate.yaml
 
 helmCharts:
 - name: argo-cd

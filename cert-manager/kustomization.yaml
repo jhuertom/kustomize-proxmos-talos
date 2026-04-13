@@ -1,0 +1,13 @@
+# kustomize build cert-manager --enable-helm | kubectl apply --server-side -f -
+resources:
+- namespace.yaml
+
+helmCharts:
+- name: cert-manager
+  namespace: cert-manager
+  repo: https://charts.jetstack.io
+  version: v1.20.2
+  releaseName: cert-manager
+  valuesInline:
+    crds:
+      enabled: true

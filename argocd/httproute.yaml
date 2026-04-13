@@ -20,6 +20,7 @@ metadata:
 spec:
   parentRefs:
     - name: eg
+      sectionName: https
   hostnames:
     - "argocd.homelab.prod"
   rules:

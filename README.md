@@ -35,6 +35,25 @@ kustomize build envoy --enable-helm | kubectl apply -f -
 curl -v -H "Host: www.example.com" 192.168.3.10
 ```
 
+# Cert-Manager
+```bash
+kustomize build cert-manager --enable-helm | kubectl apply --server-side -f -
+
+## Esperar a que esté listo
+kubectl -n cert-manager wait --for=condition=Available deployment --all --timeout=120s
+```
+
+## Cert-Manager Config (ClusterIssuers + CA)
+```bash
+kubectl apply -k cert-manager-config
+```
+
+## Verificar
+```bash
+kubectl get clusterissuer
+kubectl get certificate -n cert-manager
+```
+
 # ArgoCD
 ```bash
 kustomize build argocd --enable-helm | kubectl apply --server-side -f -
